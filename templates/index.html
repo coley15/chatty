@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Website</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 5rem;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        
+        var socket = io();
+
+        socket.on('test', function(data){
+            console.log(data);
+        });
+
+        socket.on('update', function(data){
+            document.querySelector('h1').innerHTML = data;
+        });
+    </script>
+</body>
+</html>
